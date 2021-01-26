@@ -3,13 +3,14 @@
 var myCarForm = document.getElementById('carForm');
 var arrayOfCar = [];
 var parent = document.getElementById('formContent');
-var arrayOfImg = ['bmw.png' , 'chevrolet.png' , 'hyundai.png' , 'kia.png' , 'lexus.png' , 'tesla.png' , 'toyota.png'  ]
+var imageName = ['bmw.png' , 'chevrolet.png' , 'hyundai.png' , 'kia.png' , 'lexus.png' , 'tesla.png' , 'toyota.png' ]
+
 
 function Car(carName ,  categoryModel , modelYear , url) {
  this.carName = carName;
  this.categoryModel=categoryModel;
  this.modelYear = modelYear;
- this.url = '/img' + arrayOfImg
+//  this.url = categoryModel +'/img' +  '/png' 
 
  arrayOfCar.push(this)
  
@@ -32,6 +33,13 @@ Car.prototype.dataRender = function() {
     var firstRow = document.createElement('tr');
 
   
+    // for (let index = 0; index < arrayOfImg.length; index++) {
+    //     var model = document.createElement('td');
+    //     model.textContent = this.url;
+    // }
+   
+
+  
     var myCarNAme = document.createElement('td');
     myCarNAme.textContent =  'Car Name:' +  this.carName;
 
@@ -41,11 +49,11 @@ Car.prototype.dataRender = function() {
 
     var removeButton = document.createElement('button');
     removeButton.textContent = 'Remove'
-
+   
     firstRow.appendChild(myCarNAme);
     firstRow.appendChild(modelYear);
     firstRow.appendChild(removeButton);
-
+    
     parent.appendChild(firstRow)  
 
 }

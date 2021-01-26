@@ -72,3 +72,7 @@ table  {
  button {
      display: none;
  }
+
+ table line {
+     color: thistle;
+ }
